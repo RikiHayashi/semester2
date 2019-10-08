@@ -20,10 +20,12 @@ architecture RTL of KADAI1 is
             B : out std_logic_vector(6 downto 0) );
     end component;
 
-signal a, w0: std_logic;
+signal w0: std_logic;
+signal a, b : std_logic_vector(2 downto 0 );
 
 begin
-    a <= not(SWITCH);
+	 b <= SWITCH;
+    a <= not(b);
     i0: HIGH3   port map (
             A=>a, Y=>w0 );
 
