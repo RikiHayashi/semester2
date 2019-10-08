@@ -1,0 +1,37 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "LEDDSP[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDDSP[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDDSP[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LEDDSP[6]",
+					"strict" : false
+				},
+				{
+					"name" : "SWITCH[2]",
+					"strict" : false
+				},
+				{
+					"name" : "SWITCH[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SWITCH[1]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

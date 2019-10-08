@@ -14,8 +14,8 @@ signal w0 : std_logic_vector(6 downto 0);
 begin
     process(A) begin
         case A is
-            when '0' => w0 <= "0111000";
-            when '1' => w0 <= "1110110";
+            when "0" => w0 <= "0001110";
+            when "1" => w0 <= "0110111";
             when others => w0 <= "1111001";
         end case;
     end process;
