@@ -18,18 +18,27 @@ architecture RTL of CLKDOWN is
 --                    := "00000000000000000000000010"; -- for simulation
     constant ZEROCOUNT : std_logic_vector(25 downto 0)
                     := "00000000000000000000000000";
+    signal FLAG     : std_logic;
 
 begin 
     process (CLK, RSTN, STARTN, STOPN) begin
+        if(STARTN='1') then FLAG <= '1';
+        elsif(STOPN='1') then FLAG <= '0';
+        else        FLAG <= '0';
+        end if;
+
         if (RSTN='0') then
             COUNT <= MAXCOUNT;
             ENABLE <= '0';
+            FLAG <= '0';
         elsif (CLK' event and CLK='1') then
             if (COUNT = ZEROCOUNT) then
                 COUNT <= MAXCOUNT;
                 ENABLE <= '1';
             else
-                COUNT <= COUNT -1;
+                if(FLAG = '1') then
+                    COUNT <= COUNT -1;
+                end if;
                 ENABLE <= '0';
             end if;
         end if;
