@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity TBCOUNT is
-end TBCOUNTl
+end TBCOUNT;
 
 architecture TESTBENCH of TBCOUNT is
     component COUNTER
@@ -17,7 +17,7 @@ architecture TESTBENCH of TBCOUNT is
     
     signal TBCLK, TBRSTN, TBSTARTN, TBSTOPN : std_logic;
     signal TBLEDH, TBLEDL : std_logic_vector(6 downto 0);
-
+begin
     U1 : COUNTER port map (
      CLK=>TBCLK, RSTN=>TBRSTN, STARTN=>TBSTARTN, STOPN=>TBSTOPN, LEDH=>TBLEDH, LEDL=>TBLEDL );
 
@@ -32,10 +32,10 @@ architecture TESTBENCH of TBCOUNT is
     end process;
 
     process begin
-        TBSTARTN <= '1' TBSTOPN <= '1'; wait for 250 ns;
-        TBSTARTN <= '0' TBSTOPN <= '1'; wait for 500 ns;
-        TBSTARTN <= '1' TBSTOPN <= '1'; wait for 1000 ns;
-        TBSTARTN <= '1' TBSTOPN <= '0'; wait for 500 ns;
-        TBSTARTN <= '1' TBSTOPN <= '1'; wait;
+        TBSTARTN <= '1'; TBSTOPN <= '1'; wait for 250 ns;
+        TBSTARTN <= '0'; TBSTOPN <= '1'; wait for 500 ns;
+        TBSTARTN <= '1'; TBSTOPN <= '1'; wait for 10000 ns;
+        TBSTARTN <= '1'; TBSTOPN <= '0'; wait for 500 ns;
+        TBSTARTN <= '1'; TBSTOPN <= '1'; wait;
     end process;
-end TESTBENCTH;
+end TESTBENCH;

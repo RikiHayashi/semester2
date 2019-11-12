@@ -11,9 +11,10 @@ entity COUNTER is
         LEDL    : out std_logic_vector(6 downto 0) );
 end COUNTER;
 
-architecture RTL COUNTER is
+architecture RTL of COUNTER is
     signal TENABLE  : std_logic;
-    signal TCOUNT   : std_logic_vector(7 downto 0);
+    signal HCOUNT   : std_logic_vector(3 downto 0);
+    signal LCOUNT   : std_logic_vector(3 downto 0);
 
     component CLKDOWN port (
         CLK     : in std_logic;
@@ -48,6 +49,4 @@ architecture RTL COUNTER is
 
         U4 : COUNT port map (
          CLK=>CLK, RSTN=>RSTN, ENABLE=>TENABLE, LCOUNT=>LCOUNT, HCOUNT=>HCOUNT);
-end RTL;
-
 end RTL;
